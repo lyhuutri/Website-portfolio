@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tin tức và bài viết">
+    <title>News - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            color: #667eea;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #667eea;
+        }
+
+        nav ul li a.active {
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .page-header {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .news-card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .news-card-content {
+            padding: 2rem;
+        }
+
+        .news-date {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-card h3 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .news-card p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .news-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            color: #666;
+            box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav h1 {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .news-card-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Portfolio</h1>
+            <ul>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="news.html" class="active">Tin tức</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <h1>Tin tức & Bài viết</h1>
+            <p>Cập nhật các bài viết và tin tức mới nhất</p>
+        </div>
+
+        <div class="news-grid">
+            <article class="news-card">
+                <div class="news-card-image">📰</div>
+                <div class="news-card-content">
+                    <p class="news-date">03/01/2026</p>
+                    <h3>Xu hướng thiết kế web 2026</h3>
+                    <p>Khám phá những xu hướng thiết kế web mới nhất trong năm 2026, từ minimalism đến interactive experiences.</p>
+                    <span class="news-tag">Design</span>
+                    <span class="news-tag">Web</span>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-card-image">💻</div>
+                <div class="news-card-content">
+                    <p class="news-date">01/01/2026</p>
+                    <h3>Lập trình Frontend hiện đại</h3>
+                    <p>Tìm hiểu về các framework và công nghệ frontend phổ biến nhất hiện nay và cách áp dụng vào dự án thực tế.</p>
+                    <span class="news-tag">Frontend</span>
+                    <span class="news-tag">Development</span>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-card-image">🎨</div>
+                <div class="news-card-content">
+                    <p class="news-date">28/12/2025</p>
+                    <h3>UI/UX Design Best Practices</h3>
+                    <p>Những nguyên tắc cơ bản và nâng cao trong thiết kế giao diện người dùng để tạo trải nghiệm tốt nhất.</p>
+                    <span class="news-tag">UI/UX</span>
+                    <span class="news-tag">Design</span>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-card-image">🚀</div>
+                <div class="news-card-content">
+                    <p class="news-date">25/12/2025</p>
+                    <h3>Tối ưu hiệu suất website</h3>
+                    <p>Hướng dẫn chi tiết các kỹ thuật tối ưu hóa hiệu suất website để cải thiện tốc độ tải trang và trải nghiệm người dùng.</p>
+                    <span class="news-tag">Performance</span>
+                    <span class="news-tag">Optimization</span>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-card-image">🔐</div>
+                <div class="news-card-content">
+                    <p class="news-date">20/12/2025</p>
+                    <h3>Bảo mật Web Application</h3>
+                    <p>Các phương pháp và công cụ để bảo vệ ứng dụng web khỏi các mối đe dọa bảo mật phổ biến.</p>
+                    <span class="news-tag">Security</span>
+                    <span class="news-tag">Web</span>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-card-image">📱</div>
+                <div class="news-card-content">
+                    <p class="news-date">15/12/2025</p>
+                    <h3>Responsive Design Tips</h3>
+                    <p>Bí quyết tạo ra những trang web responsive hoàn hảo trên mọi thiết bị và kích thước màn hình.</p>
+                    <span class="news-tag">Responsive</span>
+                    <span class="news-tag">Mobile</span>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portfolio - News</p>
+    </footer>
+</body>
+</html>
