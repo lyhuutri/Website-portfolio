@@ -95,6 +95,36 @@
             box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1);
         }
 
+        /* Figma Button Component */
+        .figma-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(137, 255, 63);
+            border: 2px solid rgb(194, 220, 178);
+            border-radius: 4px;
+            padding: 4px 24px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: #000000;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            height: 40px;
+            min-width: 99px;
+        }
+
+        .figma-button:hover {
+            background-color: rgb(117, 235, 43);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(137, 255, 63, 0.4);
+        }
+
+        .figma-button:active {
+            transform: translateY(0);
+        }
+
         @media (max-width: 768px) {
             nav h1 {
                 font-size: 1.5rem;
@@ -125,16 +155,27 @@
         <section id="about">
             <h2>Giới thiệu</h2>
             <p>Nội dung giới thiệu hello thiệu về bạn</p>
+            <div style="margin-top: 2rem;">
+                <button class="figma-button">BUTTON</button>
+                <button class="figma-button" style="margin-left: 1rem;">Click Me</button>
+                <a href="#" class="figma-button" style="margin-left: 1rem;">Link Button</a>
+            </div>
         </section>
 
         <section id="projects">
             <h2>Dự án</h2>
             <p>Các dự án của bạn</p>
+            <div style="margin-top: 2rem;">
+                <button class="figma-button">View Projects</button>
+            </div>
         </section>
 
         <section id="contact">
             <h2>Liên hệ</h2>
             <p>Thông tin liên hệ</p>
+            <div style="margin-top: 2rem;">
+                <button class="figma-button">Contact Me</button>
+            </div>
         </section>
     </main>
 
