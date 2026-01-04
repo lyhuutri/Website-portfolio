@@ -200,7 +200,7 @@
             <ul>
                 <li><a href="index.html">Trang chủ</a></li>
                 <li><a href="news.html" class="active">Tin tức</a></li>
-                <li><a href="#contact">Liên hệ</a></li>
+                <li><a href="cms.html">CMS</a></li>
             </ul>
         </nav>
     </header>
@@ -211,77 +211,77 @@
             <p>Cập nhật các bài viết và tin tức mới nhất</p>
         </div>
 
-        <div class="news-grid">
-            <article class="news-card">
-                <div class="news-card-image">📰</div>
-                <div class="news-card-content">
-                    <p class="news-date">03/01/2026</p>
-                    <h3>Xu hướng thiết kế web 2026</h3>
-                    <p>Khám phá những xu hướng thiết kế web mới nhất trong năm 2026, từ minimalism đến interactive experiences.</p>
-                    <span class="news-tag">Design</span>
-                    <span class="news-tag">Web</span>
-                </div>
-            </article>
-
-            <article class="news-card">
-                <div class="news-card-image">💻</div>
-                <div class="news-card-content">
-                    <p class="news-date">01/01/2026</p>
-                    <h3>Lập trình Frontend hiện đại</h3>
-                    <p>Tìm hiểu về các framework và công nghệ frontend phổ biến nhất hiện nay và cách áp dụng vào dự án thực tế.</p>
-                    <span class="news-tag">Frontend</span>
-                    <span class="news-tag">Development</span>
-                </div>
-            </article>
-
-            <article class="news-card">
-                <div class="news-card-image">🎨</div>
-                <div class="news-card-content">
-                    <p class="news-date">28/12/2025</p>
-                    <h3>UI/UX Design Best Practices</h3>
-                    <p>Những nguyên tắc cơ bản và nâng cao trong thiết kế giao diện người dùng để tạo trải nghiệm tốt nhất.</p>
-                    <span class="news-tag">UI/UX</span>
-                    <span class="news-tag">Design</span>
-                </div>
-            </article>
-
-            <article class="news-card">
-                <div class="news-card-image">🚀</div>
-                <div class="news-card-content">
-                    <p class="news-date">25/12/2025</p>
-                    <h3>Tối ưu hiệu suất website</h3>
-                    <p>Hướng dẫn chi tiết các kỹ thuật tối ưu hóa hiệu suất website để cải thiện tốc độ tải trang và trải nghiệm người dùng.</p>
-                    <span class="news-tag">Performance</span>
-                    <span class="news-tag">Optimization</span>
-                </div>
-            </article>
-
-            <article class="news-card">
-                <div class="news-card-image">🔐</div>
-                <div class="news-card-content">
-                    <p class="news-date">20/12/2025</p>
-                    <h3>Bảo mật Web Application</h3>
-                    <p>Các phương pháp và công cụ để bảo vệ ứng dụng web khỏi các mối đe dọa bảo mật phổ biến.</p>
-                    <span class="news-tag">Security</span>
-                    <span class="news-tag">Web</span>
-                </div>
-            </article>
-
-            <article class="news-card">
-                <div class="news-card-image">📱</div>
-                <div class="news-card-content">
-                    <p class="news-date">15/12/2025</p>
-                    <h3>Responsive Design Tips</h3>
-                    <p>Bí quyết tạo ra những trang web responsive hoàn hảo trên mọi thiết bị và kích thước màn hình.</p>
-                    <span class="news-tag">Responsive</span>
-                    <span class="news-tag">Mobile</span>
-                </div>
-            </article>
+        <div class="news-grid" id="newsGrid">
+            <!-- Bài viết sẽ được tải từ database -->
         </div>
     </main>
 
     <footer>
         <p>&copy; 2026 Portfolio - News</p>
     </footer>
+
+    <script>
+        // Load news from localStorage database
+        class NewsDB {
+            constructor() {
+                this.storageKey = 'newsDatabase';
+            }
+
+            getAllPosts() {
+                const data = localStorage.getItem(this.storageKey);
+                return data ? JSON.parse(data) : [];
+            }
+        }
+
+        const db = new NewsDB();
+        const newsGrid = document.getElementById('newsGrid');
+
+        function renderNews() {
+            const posts = db.getAllPosts();
+
+            if (posts.length === 0) {
+                newsGrid.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 3rem; background: white; border-radius: 20px;">
+                        <h3 style="color: #667eea; margin-bottom: 1rem;">Chưa có bài viết nào</h3>
+                        <p style="color: #666; margin-bottom: 1.5rem;">Hãy vào trang CMS để thêm bài viết mới</p>
+                        <a href="cms.html" style="display: inline-block; padding: 0.8rem 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 10px; font-weight: 600;">Đến trang CMS</a>
+                    </div>
+                `;
+                return;
+            }
+
+            newsGrid.innerHTML = posts.map(post => {
+                const formattedDate = new Date(post.date).toLocaleDateString('vi-VN');
+                const tagsHtml = post.tags.map(tag =>
+                    `<span class="news-tag">${tag}</span>`
+                ).join('');
+
+                return `
+                    <article class="news-card">
+                        <div class="news-card-image">${post.icon}</div>
+                        <div class="news-card-content">
+                            <p class="news-date">${formattedDate}</p>
+                            <h3>${post.title}</h3>
+                            <p>${post.content}</p>
+                            ${tagsHtml}
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        // Initial render
+        renderNews();
+
+        // Listen for storage changes (when CMS updates)
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'newsDatabase') {
+                renderNews();
+            }
+        });
+
+        // Auto refresh every 2 seconds to catch same-tab updates
+        setInterval(renderNews, 2000);
+    </script>
 </body>
 </html>
