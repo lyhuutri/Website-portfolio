@@ -539,57 +539,6 @@
         </div>
     </footer>
 
-    <script>
-        // Hamburger Menu Toggle
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-        });
-
-        // Close menu when clicking on a link
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-
-        // Blog Cards Infinite Slider
-        const blogSlider = document.getElementById('blogCardsSlider');
-        const blogPrevBtn = document.getElementById('blogPrevBtn');
-        const blogNextBtn = document.getElementById('blogNextBtn');
-        const cards = blogSlider.querySelectorAll('.Blog-card');
-        const cardWidth = 380; // 360px card + 20px gap
-        let currentIndex = 0;
-        const totalCards = cards.length;
-
-        function updateSlider(direction) {
-            if (direction === 'next') {
-                currentIndex++;
-                if (currentIndex >= totalCards) {
-                    currentIndex = 0;
-                    blogSlider.scrollTo({ left: 0, behavior: 'smooth' });
-                } else {
-                    blogSlider.scrollBy({ left: cardWidth, behavior: 'smooth' });
-                }
-            } else {
-                currentIndex--;
-                if (currentIndex < 0) {
-                    currentIndex = totalCards - 1;
-                    blogSlider.scrollTo({ left: blogSlider.scrollWidth, behavior: 'smooth' });
-                } else {
-                    blogSlider.scrollBy({ left: -cardWidth, behavior: 'smooth' });
-                }
-            }
-        }
-
-        blogPrevBtn.addEventListener('click', () => updateSlider('prev'));
-        blogNextBtn.addEventListener('click', () => updateSlider('next'));
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
