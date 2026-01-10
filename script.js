@@ -8,38 +8,9 @@ initLoadingScreen();
 
 // Wait for DOM to be ready
 document.addEventListener('DOMContentLoaded', function() {
-    initSmoothScroll();
     initHamburgerMenu();
     initBlogSlider();
 });
-
-/**
- * Smooth Scroll Module (Lenis)
- * ----------------------------
- * Creates buttery smooth scrolling experience
- */
-function initSmoothScroll() {
-    const lenis = new Lenis({
-        duration: 0.6,
-        easing: (t) => 1 - Math.pow(1 - t, 3),
-        orientation: 'vertical',
-        gestureOrientation: 'vertical',
-        smoothWheel: true,
-        wheelMultiplier: 1.5,
-        touchMultiplier: 2.5,
-        lerp: 0.15,
-    });
-
-    function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    // Make lenis available globally for anchor links
-    window.lenis = lenis;
-}
 
 /**
  * Loading Screen Module
@@ -232,7 +203,7 @@ function initBlogSlider() {
 }
 
 /**
- * Smooth Scroll for anchor links (using Lenis)
+ * Smooth Scroll for anchor links
  */
 document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     anchor.addEventListener('click', function(e) {
@@ -240,12 +211,11 @@ document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
         if (targetId === '#') return;
 
         const target = document.querySelector(targetId);
-        if (target && window.lenis) {
+        if (target) {
             e.preventDefault();
-            window.lenis.scrollTo(target, {
-                offset: 0,
-                duration: 0.8,
-                easing: (t) => 1 - Math.pow(1 - t, 3)
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
         }
     });
