@@ -3,184 +3,593 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio cá nhân">
-    <title>Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.5rem 2rem;
-        }
-
-        nav h1 {
-            color: #667eea;
-            font-size: 2rem;
-            font-weight: 700;
-        }
-
-        main {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 2rem;
-        }
-
-        section {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        section h2 {
-            color: #667eea;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 2px;
-        }
-
-        section p {
-            color: #666;
-            font-size: 1.1rem;
-            margin-top: 1.5rem;
-        }
-
-        footer {
-            background: rgba(255, 255, 255, 0.95);
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-            color: #666;
-            box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Figma Button Component */
-        .figma-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: rgb(137, 255, 63);
-            border: 2px solid rgb(194, 220, 178);
-            border-radius: 4px;
-            padding: 4px 24px;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 12px;
-            font-weight: 600;
-            color: #000000;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            height: 40px;
-            min-width: 99px;
-        }
-
-        .figma-button:hover {
-            background-color: rgb(117, 235, 43);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(137, 255, 63, 0.4);
-        }
-
-        .figma-button:active {
-            transform: translateY(0);
-        }
-
-        @media (max-width: 768px) {
-            nav h1 {
-                font-size: 1.5rem;
-            }
-
-            section {
-                padding: 2rem;
-            }
-
-            section h2 {
-                font-size: 1.5rem;
-            }
-
-            section p {
-                font-size: 1rem;
-            }
-        }
-    </style>
+    <title>Website Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=B612+Mono:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <h1>Portfolio</h1>
-        </nav>
+    <!-- Section - Header -->
+    <header class="Section-Header">
+        <div class="Container">
+            <!-- Main-header-stack -->
+            <div class="Main-header-stack">
+                <!-- Logo -->
+                <div class="Logo">
+                    <img src="https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/70c28b04-78cf-409d-b974-63b6e788cc9d" alt="Logo">
+                </div>
+
+                <!-- Tim-kiem -->
+                <div class="Tim-kiem">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 21L16.65 16.65M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <input type="text" placeholder="Tìm kiếm wiki...">
+                </div>
+
+                <!-- Duo-button -->
+                <div class="Duo-button">
+                    <!-- Button-icon (Phone) -->
+                    <a href="tel:+840846088081" class="Button-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 16.92V19.92C22.0011 20.1985 21.9441 20.4742 21.8325 20.7293C21.7209 20.9845 21.5573 21.2136 21.3521 21.4019C21.1468 21.5901 20.9046 21.7335 20.6407 21.8227C20.3769 21.9119 20.0974 21.9451 19.82 21.92C16.7428 21.5856 13.787 20.5341 11.19 18.85C8.77383 17.3147 6.72534 15.2662 5.19 12.85C3.49998 10.2412 2.44824 7.27099 2.12 4.18C2.09501 3.90347 2.12788 3.62476 2.2165 3.36162C2.30513 3.09849 2.44757 2.85669 2.63477 2.65162C2.82196 2.44655 3.04981 2.28271 3.30379 2.17052C3.55778 2.05833 3.83234 2.00026 4.11 2H7.11C7.5953 1.99522 8.06579 2.16708 8.43376 2.48353C8.80173 2.79999 9.04207 3.23945 9.11 3.72C9.23662 4.68007 9.47145 5.62273 9.81 6.53C9.94455 6.88792 9.97366 7.27691 9.89391 7.65088C9.81415 8.02485 9.62886 8.36811 9.36 8.64L8.09 9.91C9.51356 12.4135 11.5865 14.4864 14.09 15.91L15.36 14.64C15.6319 14.3711 15.9752 14.1858 16.3491 14.1061C16.7231 14.0263 17.1121 14.0555 17.47 14.19C18.3773 14.5286 19.3199 14.7634 20.28 14.89C20.7658 14.9585 21.2094 15.2032 21.5265 15.5775C21.8437 15.9518 22.0122 16.4296 22 16.92Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="Phone-Number">+84 0846 088 081</span>
+                    </a>
+
+                    <!-- Button-icon (Chat) -->
+                    <a href="#" class="Button-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7118 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0035 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92179 4.44061 8.37488 5.27072 7.03258C6.10083 5.69028 7.28825 4.6056 8.7 3.90003C9.87812 3.30496 11.1801 2.99659 12.5 3.00003H13C15.0843 3.11502 17.053 3.99479 18.5291 5.47089C20.0052 6.94699 20.885 8.91568 21 11V11.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Hamburger -->
+                <button class="Hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <!-- div (Divider) -->
+            <div class="div">
+                <div class="Divider-Left"></div>
+                <div class="Divider-Center"></div>
+                <div class="Divider-Right"></div>
+            </div>
+
+            <!-- Sub-header -->
+            <div class="Sub-header">
+                <!-- Menu-stack -->
+                <div class="Menu-stack">
+                    <!-- Nav-menu -->
+                    <nav class="Nav-menu">
+                        <a href="#" class="Nav-item">
+                            <span>Trang chủ</span>
+                        </a>
+                        <a href="#" class="Nav-item active">
+                            <span>Khóa học</span>
+                        </a>
+                        <a href="#" class="Nav-item">
+                            <span>Tài nguyên</span>
+                        </a>
+                        <a href="#" class="Nav-item">
+                            <span>Wiki</span>
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- Duo-button -->
+                <div class="Duo-button">
+                    <!-- Button -->
+                    <a href="#" class="Button">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M9.09 9C9.3251 8.33167 9.78915 7.76811 10.4 7.40913C11.0108 7.05016 11.7289 6.91894 12.4272 7.03871C13.1255 7.15849 13.7588 7.52152 14.2151 8.06353C14.6713 8.60553 14.9211 9.29152 14.92 10C14.92 12 11.92 13 11.92 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="17" r="1" fill="currentColor"/>
+                        </svg>
+                        <span>Cộng đồng</span>
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+
+                    <!-- Button--primary -->
+                    <a href="#" class="Button Button--primary">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M9.09 9C9.3251 8.33167 9.78915 7.76811 10.4 7.40913C11.0108 7.05016 11.7289 6.91894 12.4272 7.03871C13.1255 7.15849 13.7588 7.52152 14.2151 8.06353C14.6713 8.60553 14.9211 9.29152 14.92 10C14.92 12 11.92 13 11.92 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="17" r="1" fill="currentColor"/>
+                        </svg>
+                        <span>Ghi danh</span>
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <section id="about">
-            <h2>Giới thiệu</h2>
-            <p>Nội dung giới thiệu hello thiệu về bạn</p>
-            <div style="margin-top: 2rem;">
-                <button class="figma-button">BUTTON</button>
-                <button class="figma-button" style="margin-left: 1rem;">Click Me</button>
-                <a href="#" class="figma-button" style="margin-left: 1rem;">Link Button</a>
-            </div>
-        </section>
+    <!-- Mobile Menu -->
+    <div class="Mobile-menu" id="mobileMenu">
+        <!-- Nav-menu -->
+        <nav class="Nav-menu">
+            <a href="#" class="Nav-item">
+                <span>Trang chủ</span>
+            </a>
+            <a href="#" class="Nav-item active">
+                <span>Khóa học</span>
+            </a>
+            <a href="#" class="Nav-item">
+                <span>Tài nguyên</span>
+            </a>
+            <a href="#" class="Nav-item">
+                <span>Wiki</span>
+            </a>
+        </nav>
 
-        <section id="projects">
-            <h2>Dự án</h2>
-            <p>Các dự án của bạn</p>
-            <div style="margin-top: 2rem;">
-                <button class="figma-button">View Projects</button>
-            </div>
-        </section>
+        <!-- Duo-button -->
+        <div class="Duo-button">
+            <!-- Button-icon (Phone) -->
+            <a href="tel:+840846088081" class="Button-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 16.92V19.92C22.0011 20.1985 21.9441 20.4742 21.8325 20.7293C21.7209 20.9845 21.5573 21.2136 21.3521 21.4019C21.1468 21.5901 20.9046 21.7335 20.6407 21.8227C20.3769 21.9119 20.0974 21.9451 19.82 21.92C16.7428 21.5856 13.787 20.5341 11.19 18.85C8.77383 17.3147 6.72534 15.2662 5.19 12.85C3.49998 10.2412 2.44824 7.27099 2.12 4.18C2.09501 3.90347 2.12788 3.62476 2.2165 3.36162C2.30513 3.09849 2.44757 2.85669 2.63477 2.65162C2.82196 2.44655 3.04981 2.28271 3.30379 2.17052C3.55778 2.05833 3.83234 2.00026 4.11 2H7.11C7.5953 1.99522 8.06579 2.16708 8.43376 2.48353C8.80173 2.79999 9.04207 3.23945 9.11 3.72C9.23662 4.68007 9.47145 5.62273 9.81 6.53C9.94455 6.88792 9.97366 7.27691 9.89391 7.65088C9.81415 8.02485 9.62886 8.36811 9.36 8.64L8.09 9.91C9.51356 12.4135 11.5865 14.4864 14.09 15.91L15.36 14.64C15.6319 14.3711 15.9752 14.1858 16.3491 14.1061C16.7231 14.0263 17.1121 14.0555 17.47 14.19C18.3773 14.5286 19.3199 14.7634 20.28 14.89C20.7658 14.9585 21.2094 15.2032 21.5265 15.5775C21.8437 15.9518 22.0122 16.4296 22 16.92Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="Phone-Number">+84 0846 088 081</span>
+            </a>
 
-        <section id="contact">
-            <h2>Liên hệ</h2>
-            <p>Thông tin liên hệ</p>
-            <div style="margin-top: 2rem;">
-                <button class="figma-button">Contact Me</button>
-            </div>
-        </section>
-    </main>
+            <!-- Button -->
+            <a href="#" class="Button">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M9.09 9C9.3251 8.33167 9.78915 7.76811 10.4 7.40913C11.0108 7.05016 11.7289 6.91894 12.4272 7.03871C13.1255 7.15849 13.7588 7.52152 14.2151 8.06353C14.6713 8.60553 14.9211 9.29152 14.92 10C14.92 12 11.92 13 11.92 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="17" r="1" fill="currentColor"/>
+                </svg>
+                <span>Cộng đồng</span>
+            </a>
 
-    <footer>
-        <p>&copy; 2026 Portfolio</p>
+            <!-- Button--primary -->
+            <a href="#" class="Button Button--primary">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M9.09 9C9.3251 8.33167 9.78915 7.76811 10.4 7.40913C11.0108 7.05016 11.7289 6.91894 12.4272 7.03871C13.1255 7.15849 13.7588 7.52152 14.2151 8.06353C14.6713 8.60553 14.9211 9.29152 14.92 10C14.92 12 11.92 13 11.92 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="17" r="1" fill="currentColor"/>
+                </svg>
+                <span>Ghi danh</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Section - Hero -->
+    <section class="Section-Hero">
+        <div class="Container">
+            <div class="Layout">
+                <!-- Tag -->
+                <div class="Tag">
+                    <div class="Tag-line"></div>
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="Tag-text">NỔI BẬT</span>
+                    <div class="Tag-line"></div>
+                </div>
+
+                <!-- Main-Title -->
+                <h1 class="Main-Title">Làm chủ thiết kế UIUX — trong 1 lộ trình học Thực chiến</h1>
+
+                <!-- Subtitle -->
+                <p class="Subtitle">Hướng dẫn thiết kế webdesign no-code & A.I design.<br>Cập nhật xu hướng, làm chủ công nghệ</p>
+
+                <!-- Duo-button -->
+                <div class="Duo-button">
+                    <a href="#" class="Button">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M9.09 9C9.3251 8.33167 9.78915 7.76811 10.4 7.40913C11.0108 7.05016 11.7289 6.91894 12.4272 7.03871C13.1255 7.15849 13.7588 7.52152 14.2151 8.06353C14.6713 8.60553 14.9211 9.29152 14.92 10C14.92 12 11.92 13 11.92 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="17" r="1" fill="currentColor"/>
+                        </svg>
+                        <span>Tư vấn 1:1</span>
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="Button Button--primary">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M9.09 9C9.3251 8.33167 9.78915 7.76811 10.4 7.40913C11.0108 7.05016 11.7289 6.91894 12.4272 7.03871C13.1255 7.15849 13.7588 7.52152 14.2151 8.06353C14.6713 8.60553 14.9211 9.29152 14.92 10C14.92 12 11.92 13 11.92 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="17" r="1" fill="currentColor"/>
+                        </svg>
+                        <span>GHI DANH</span>
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- AVT-stacks -->
+                <div class="AVT-stacks">
+                    <div class="Avatar">
+                        <img src="https://i.pravatar.cc/96?img=1" alt="Avatar 1">
+                    </div>
+                    <div class="Avatar">
+                        <img src="https://i.pravatar.cc/96?img=2" alt="Avatar 2">
+                    </div>
+                    <div class="Avatar">
+                        <img src="https://i.pravatar.cc/96?img=3" alt="Avatar 3">
+                    </div>
+                    <div class="Avatar">
+                        <img src="https://i.pravatar.cc/96?img=4" alt="Avatar 4">
+                    </div>
+                    <div class="Avatar-Count">2000+</div>
+                </div>
+
+                <!-- Rate-Stack -->
+                <div class="Rate-Stack">
+                    <div class="Rate-stare-stack">
+                        <div class="Star"></div>
+                        <div class="Star"></div>
+                        <div class="Star"></div>
+                        <div class="Star"></div>
+                        <div class="Star"></div>
+                    </div>
+                    <span class="Community-Text">THAM GIA CỘNG ĐỒNG 2000+ HỌC VIÊN</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section - Blog -->
+    <section class="Section-Blog">
+        <div class="Container">
+            <!-- Title-stack-left -->
+            <div class="Title-stack-left">
+                <div class="Tag">
+                    <div class="Tag-line"></div>
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3 9H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9 21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="Tag-text">BLOG</span>
+                    <div class="Tag-line"></div>
+                </div>
+                <h2 class="Blog-Title">Hôm nay có gì?</h2>
+            </div>
+
+            <!-- Blog Cards Container -->
+            <div class="Blog-Cards-Container">
+                <!-- Arrow-button Left -->
+                <button class="Arrow-button" id="blogPrevBtn">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+
+                <!-- Blog Cards Slider -->
+                <div class="Blog-Cards-Slider" id="blogCardsSlider">
+                <!-- Blog-card 1 -->
+                <div class="Blog-card">
+                    <div class="Title-stack">
+                        <div class="decor-stack">
+                            <div class="decor-dots">
+                                <div class="decor-dot"></div>
+                                <div class="decor-dot"></div>
+                                <div class="decor-dot"></div>
+                            </div>
+                            <div class="decor-line"></div>
+                            <span class="decor-text">FEATURE</span>
+                            <div class="decor-line"></div>
+                            <span class="decor-number">[NO.019]</span>
+                        </div>
+                        <div class="Blog-card-image">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400" alt="Blog Image 1">
+                        </div>
+                    </div>
+                    <div class="content-stack">
+                        <h3 class="Blog-card-title">Bài viết 1</h3>
+                        <a href="#" class="Button">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M5 15H4C2.89543 15 2 14.1046 2 13V4C2 2.89543 2.89543 2 4 2H13C14.1046 2 15 2.89543 15 4V5" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>Copy component</span>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog-card 2 -->
+                <div class="Blog-card">
+                    <div class="Title-stack">
+                        <div class="decor-stack">
+                            <div class="decor-dots">
+                                <div class="decor-dot"></div>
+                                <div class="decor-dot"></div>
+                                <div class="decor-dot"></div>
+                            </div>
+                            <div class="decor-line"></div>
+                            <span class="decor-text">FEATURE</span>
+                            <div class="decor-line"></div>
+                            <span class="decor-number">[NO.020]</span>
+                        </div>
+                        <div class="Blog-card-image">
+                            <img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=400" alt="Blog Image 2">
+                        </div>
+                    </div>
+                    <div class="content-stack">
+                        <h3 class="Blog-card-title">Bài viết 2</h3>
+                        <a href="#" class="Button">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M5 15H4C2.89543 15 2 14.1046 2 13V4C2 2.89543 2.89543 2 4 2H13C14.1046 2 15 2.89543 15 4V5" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>Copy component</span>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog-card 3 -->
+                <div class="Blog-card">
+                    <div class="Title-stack">
+                        <div class="decor-stack">
+                            <div class="decor-dots">
+                                <div class="decor-dot"></div>
+                                <div class="decor-dot"></div>
+                                <div class="decor-dot"></div>
+                            </div>
+                            <div class="decor-line"></div>
+                            <span class="decor-text">FEATURE</span>
+                            <div class="decor-line"></div>
+                            <span class="decor-number">[NO.021]</span>
+                        </div>
+                        <div class="Blog-card-image">
+                            <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=400" alt="Blog Image 3">
+                        </div>
+                    </div>
+                    <div class="content-stack">
+                        <h3 class="Blog-card-title">Bài viết 3</h3>
+                        <a href="#" class="Button">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M5 15H4C2.89543 15 2 14.1046 2 13V4C2 2.89543 2.89543 2 4 2H13C14.1046 2 15 2.89543 15 4V5" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>Copy component</span>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog-card 4 -->
+                <div class="Blog-card">
+                    <div class="Title-stack">
+                        <div class="decor-stack">
+                            <div class="decor-dots">
+                                <div class="decor-dot"></div>
+                                <div class="decor-dot"></div>
+                                <div class="decor-dot"></div>
+                            </div>
+                            <div class="decor-line"></div>
+                            <span class="decor-text">TUTORIAL</span>
+                            <div class="decor-line"></div>
+                            <span class="decor-number">[NO.022]</span>
+                        </div>
+                        <div class="Blog-card-image">
+                            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400" alt="Blog Image 4">
+                        </div>
+                    </div>
+                    <div class="content-stack">
+                        <h3 class="Blog-card-title">Bài viết 4</h3>
+                        <a href="#" class="Button">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M5 15H4C2.89543 15 2 14.1046 2 13V4C2 2.89543 2.89543 2 4 2H13C14.1046 2 15 2.89543 15 4V5" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>Copy component</span>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog-card 5 -->
+                <div class="Blog-card">
+                    <div class="Title-stack">
+                        <div class="decor-stack">
+                            <div class="decor-dots">
+                                <div class="decor-dot"></div>
+                                <div class="decor-dot"></div>
+                                <div class="decor-dot"></div>
+                            </div>
+                            <div class="decor-line"></div>
+                            <span class="decor-text">DESIGN</span>
+                            <div class="decor-line"></div>
+                            <span class="decor-number">[NO.023]</span>
+                        </div>
+                        <div class="Blog-card-image">
+                            <img src="https://images.unsplash.com/photo-1626785774625-ddcddc3445e9?w=400" alt="Blog Image 5">
+                        </div>
+                    </div>
+                    <div class="content-stack">
+                        <h3 class="Blog-card-title">Bài viết 5</h3>
+                        <a href="#" class="Button">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M5 15H4C2.89543 15 2 14.1046 2 13V4C2 2.89543 2.89543 2 4 2H13C14.1046 2 15 2.89543 15 4V5" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>Copy component</span>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog-card 6 -->
+                <div class="Blog-card">
+                    <div class="Title-stack">
+                        <div class="decor-stack">
+                            <div class="decor-dots">
+                                <div class="decor-dot"></div>
+                                <div class="decor-dot"></div>
+                                <div class="decor-dot"></div>
+                            </div>
+                            <div class="decor-line"></div>
+                            <span class="decor-text">UPDATE</span>
+                            <div class="decor-line"></div>
+                            <span class="decor-number">[NO.024]</span>
+                        </div>
+                        <div class="Blog-card-image">
+                            <img src="https://images.unsplash.com/photo-1635405074683-96d6921a2a68?w=400" alt="Blog Image 6">
+                        </div>
+                    </div>
+                    <div class="content-stack">
+                        <h3 class="Blog-card-title">Bài viết 6</h3>
+                        <a href="#" class="Button">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M5 15H4C2.89543 15 2 14.1046 2 13V4C2 2.89543 2.89543 2 4 2H13C14.1046 2 15 2.89543 15 4V5" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>Copy component</span>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Arrow-button Right -->
+                <button class="Arrow-button" id="blogNextBtn">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section - Footer -->
+    <footer class="Section-Footer">
+        <div class="Container">
+            <!-- Logo-stack-verticle -->
+            <div class="Logo-stack-verticle">
+                <img src="https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/0fc18be9-0156-47c3-bee8-48cadb5145a8" alt="Footer Logo" class="Footer-Logo">
+                <span class="Footer-Logo-Text">Since 2019</span>
+            </div>
+
+            <!-- Footer-menu-stack 1 -->
+            <div class="Footer-menu-stack">
+                <h4 class="Footer-Menu-Title">KHÁM PHÁ</h4>
+                <nav class="Footer-Menu-Items">
+                    <a href="#" class="Footer-Nav-item">Trang chủ</a>
+                    <a href="#" class="Footer-Nav-item">Khóa học</a>
+                    <a href="#" class="Footer-Nav-item">Tài nguyên</a>
+                    <a href="#" class="Footer-Nav-item">Wiki</a>
+                </nav>
+            </div>
+
+            <!-- Footer-menu-stack 2 -->
+            <div class="Footer-menu-stack">
+                <h4 class="Footer-Menu-Title">KẾT NỐI</h4>
+                <nav class="Footer-Menu-Items">
+                    <a href="#" class="Footer-Nav-item">Fanpage</a>
+                    <a href="#" class="Footer-Nav-item">Cộng đồng</a>
+                    <a href="#" class="Footer-Nav-item">FB Giảng viên</a>
+                </nav>
+            </div>
+
+            <!-- Footer-menu-stack 3 -->
+            <div class="Footer-menu-stack">
+                <h4 class="Footer-Menu-Title">LIÊN HỆ</h4>
+                <nav class="Footer-Menu-Items">
+                    <a href="tel:+84846088081" class="Footer-Nav-item">(+84) 846 088 081</a>
+                    <a href="mailto:thietke.huutri@gmail.com" class="Footer-Nav-item">thietke.huutri@gmail.com</a>
+                </nav>
+            </div>
+
+            <!-- subscribe-stack-verticle -->
+            <div class="subscribe-stack-verticle">
+                <div class="Subscribe-Input">
+                    <input type="email" placeholder="Nhập email của bạn">
+                </div>
+                <button class="Button Button--primary Subscribe-Button">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M9.09 9C9.3251 8.33167 9.78915 7.76811 10.4 7.40913C11.0108 7.05016 11.7289 6.91894 12.4272 7.03871C13.1255 7.15849 13.7588 7.52152 14.2151 8.06353C14.6713 8.60553 14.9211 9.29152 14.92 10C14.92 12 11.92 13 11.92 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="17" r="1" fill="currentColor"/>
+                    </svg>
+                    <span>đăng ký</span>
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close menu when clicking on a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Blog Cards Infinite Slider
+        const blogSlider = document.getElementById('blogCardsSlider');
+        const blogPrevBtn = document.getElementById('blogPrevBtn');
+        const blogNextBtn = document.getElementById('blogNextBtn');
+        const cards = blogSlider.querySelectorAll('.Blog-card');
+        const cardWidth = 380; // 360px card + 20px gap
+        let currentIndex = 0;
+        const totalCards = cards.length;
+
+        function updateSlider(direction) {
+            if (direction === 'next') {
+                currentIndex++;
+                if (currentIndex >= totalCards) {
+                    currentIndex = 0;
+                    blogSlider.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    blogSlider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                }
+            } else {
+                currentIndex--;
+                if (currentIndex < 0) {
+                    currentIndex = totalCards - 1;
+                    blogSlider.scrollTo({ left: blogSlider.scrollWidth, behavior: 'smooth' });
+                } else {
+                    blogSlider.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+                }
+            }
+        }
+
+        blogPrevBtn.addEventListener('click', () => updateSlider('prev'));
+        blogNextBtn.addEventListener('click', () => updateSlider('next'));
+    </script>
 </body>
 </html>

@@ -1,0 +1,1206 @@
+/* ========================================
+   CSS Variables from Figma
+======================================== */
+:root {
+    --section-bg: rgb(234, 234, 234);
+    --container-bg: rgb(255, 255, 255);
+    --container-border: rgb(240, 241, 243);
+    --accent: rgb(249, 72, 72);
+    --accent-dark: rgb(193, 24, 24);
+    --text-primary: rgb(41, 49, 60);
+    --text-secondary: rgb(88, 99, 115);
+    --text-muted: rgb(179, 179, 179);
+    --bg-hover: rgb(247, 247, 247);
+    --font-inter: 'Inter', sans-serif;
+}
+
+/* ========================================
+   Reset & Base
+======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-inter);
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+/* ========================================
+   Section - Header
+======================================== */
+.Section-Header {
+    background-color: var(--section-bg);
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.Container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--container-bg);
+    border: 1px solid var(--container-border);
+    border-top: none;
+    padding: 16px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ========================================
+   Main-header-stack
+======================================== */
+.Main-header-stack {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 40px;
+}
+
+/* Logo */
+.Logo {
+    width: 128px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.Logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ========================================
+   Tim-kiem (Search)
+======================================== */
+.Tim-kiem {
+    flex: 1;
+    height: 40px;
+    background-color: var(--container-bg);
+    border: 1px solid var(--container-border);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 12px;
+    cursor: text;
+    transition: border-color 0.2s ease;
+}
+
+.Tim-kiem:hover,
+.Tim-kiem:focus-within {
+    border-color: var(--text-secondary);
+}
+
+.Tim-kiem svg {
+    width: 24px;
+    height: 24px;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+}
+
+.Tim-kiem input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: var(--font-inter);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.Tim-kiem input::placeholder {
+    color: var(--text-secondary);
+}
+
+/* ========================================
+   Duo-button
+======================================== */
+.Duo-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+/* ========================================
+   Button-icon
+======================================== */
+.Button-icon {
+    height: 40px;
+    background-color: var(--container-bg);
+    border: 1px solid var(--container-border);
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 16px;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+.Button-icon:hover {
+    border-color: var(--text-secondary);
+}
+
+.Button-icon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+}
+
+/* Phone-Number */
+.Phone-Number {
+    font-family: var(--font-inter);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.65px;
+}
+
+/* ========================================
+   div (Divider)
+======================================== */
+.div {
+    display: flex;
+    align-items: center;
+    height: 13px;
+}
+
+.Divider-Left,
+.Divider-Right {
+    position: relative;
+    width: 15px;
+    height: 13px;
+    flex-shrink: 0;
+}
+
+.Divider-Left::before,
+.Divider-Right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 13px;
+    background-color: var(--container-border);
+}
+
+.Divider-Left::before {
+    right: 0;
+}
+
+.Divider-Right::before {
+    left: 0;
+}
+
+.Divider-Left::after,
+.Divider-Right::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 1px;
+    background-color: var(--container-border);
+}
+
+.Divider-Left::after {
+    left: 0;
+}
+
+.Divider-Right::after {
+    right: 0;
+}
+
+.Divider-Center {
+    flex: 1;
+    height: 1px;
+    background-color: var(--container-border);
+}
+
+/* ========================================
+   Sub-header
+======================================== */
+.Sub-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+}
+
+/* ========================================
+   Menu-stack
+======================================== */
+.Menu-stack {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* ========================================
+   Nav-menu
+======================================== */
+.Nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+}
+
+/* ========================================
+   Nav-item
+======================================== */
+.Nav-item {
+    display: flex;
+    align-items: center;
+    padding: 5px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+}
+
+.Nav-item span {
+    font-family: var(--font-inter);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.65px;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+}
+
+.Nav-item:hover {
+    background-color: var(--bg-hover);
+}
+
+.Nav-item:hover span {
+    color: var(--text-primary);
+}
+
+.Nav-item.active {
+    background-color: var(--bg-hover);
+}
+
+.Nav-item.active span {
+    color: var(--text-primary);
+}
+
+/* ========================================
+   Button
+======================================== */
+.Button {
+    height: 40px;
+    background-color: var(--container-bg);
+    border: 2px solid var(--container-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 16px;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+    text-decoration: none;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.Button:hover {
+    border-color: var(--text-secondary);
+}
+
+.Button svg {
+    width: 24px;
+    height: 24px;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+}
+
+.Button span {
+    font-family: var(--font-inter);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.65px;
+}
+
+/* Button--primary */
+.Button--primary {
+    background-color: var(--accent);
+    border: 1px solid var(--accent-dark);
+    border-bottom-width: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.Button--primary:hover {
+    background-color: var(--accent-dark);
+    border-color: var(--accent-dark);
+}
+
+.Button--primary svg {
+    color: #fff;
+}
+
+.Button--primary span {
+    color: #fff;
+}
+
+/* ========================================
+   Hamburger Menu
+======================================== */
+.Hamburger {
+    display: none;
+    width: 40px;
+    height: 40px;
+    background-color: var(--container-bg);
+    border: 1px solid var(--container-border);
+    border-radius: 8px;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px;
+    flex-shrink: 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.Hamburger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: var(--text-secondary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.Hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.Hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.Hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ========================================
+   Mobile Menu Overlay
+======================================== */
+.Mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--container-bg);
+    z-index: 999;
+    flex-direction: column;
+    padding: 80px 24px 24px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.Mobile-menu.active {
+    transform: translateX(0);
+}
+
+.Mobile-menu .Nav-menu {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.Mobile-menu .Nav-item {
+    padding: 12px 16px;
+    justify-content: center;
+}
+
+.Mobile-menu .Nav-item span {
+    font-size: 15px;
+}
+
+.Mobile-menu .Duo-button {
+    flex-direction: column;
+    gap: 12px;
+}
+
+.Mobile-menu .Button {
+    width: 100%;
+    justify-content: center;
+    height: 48px;
+}
+
+.Mobile-menu .Button-icon {
+    width: 100%;
+    justify-content: center;
+    height: 48px;
+    border-radius: 100px;
+    padding: 0 16px;
+}
+
+.Mobile-menu .Tim-kiem {
+    height: 40px;
+    flex-shrink: 0;
+    margin-bottom: 24px;
+}
+
+/* ========================================
+   Responsive - Tablet (768px - 1024px)
+======================================== */
+@media (max-width: 1024px) {
+    .Section-Header {
+        padding: 0;
+    }
+
+    .Container {
+        max-width: 100%;
+        padding: 16px 24px;
+        border-left: none;
+        border-right: none;
+    }
+
+    /* Hide Sub-header on tablet */
+    .Sub-header {
+        display: none;
+    }
+
+    /* Hide divider on tablet */
+    .div {
+        display: none;
+    }
+
+    /* Show hamburger */
+    .Hamburger {
+        display: flex;
+    }
+
+    /* Show mobile menu */
+    .Mobile-menu {
+        display: flex;
+    }
+
+    /* Keep search bar visible on tablet */
+    .Tim-kiem {
+        flex: 1;
+        display: flex;
+        height: 40px;
+    }
+
+    /* Hide phone number text on tablet */
+    .Phone-Number {
+        display: none;
+    }
+
+    .Button-icon {
+        padding: 0;
+        width: 40px;
+    }
+}
+
+/* ========================================
+   Responsive - Mobile (< 768px)
+======================================== */
+@media (max-width: 768px) {
+    .Section-Header {
+        padding: 0;
+    }
+
+    .Container {
+        padding: 12px 16px;
+        gap: 12px;
+    }
+
+    .Main-header-stack {
+        gap: 12px;
+    }
+
+    /* Smaller logo on mobile */
+    .Logo {
+        width: 100px;
+        height: 16px;
+    }
+
+    /* Keep search bar visible on mobile */
+    .Tim-kiem {
+        display: flex;
+        flex: 1;
+        height: 40px;
+    }
+
+    /* Hide phone/chat buttons on mobile */
+    .Main-header-stack > .Duo-button {
+        display: none;
+    }
+
+    .Mobile-menu {
+        padding: 70px 16px 16px;
+    }
+}
+
+/* ========================================
+   Responsive - Small Mobile (< 480px)
+======================================== */
+@media (max-width: 480px) {
+    .Section-Header {
+        padding: 0;
+    }
+
+    .Container {
+        padding: 10px 12px;
+    }
+
+    .Logo {
+        width: 90px;
+        height: 14px;
+    }
+
+    .Hamburger {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* ========================================
+   Section - Hero
+======================================== */
+.Section-Hero {
+    background-color: var(--section-bg);
+    padding: 0 40px;
+}
+
+.Section-Hero .Container {
+    padding: 60px 40px;
+    border-top: none;
+}
+
+.Layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+/* Tag */
+.Tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.Tag-line {
+    width: 1px;
+    height: 23px;
+    background-color: var(--accent);
+}
+
+.Tag svg {
+    width: 16px;
+    height: 16px;
+    color: var(--accent);
+}
+
+.Tag-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--accent);
+    text-transform: uppercase;
+}
+
+/* Main Title */
+.Main-Title {
+    font-family: 'Averta', var(--font-inter);
+    font-size: 56px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.1;
+    letter-spacing: -1.12px;
+}
+
+/* Subtitle */
+.Subtitle {
+    font-family: var(--font-inter);
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* Hero Duo-button */
+.Section-Hero .Duo-button {
+    gap: 12px;
+}
+
+.Section-Hero .Button {
+    height: 60px;
+    padding: 0 32px;
+    position: relative;
+}
+
+.Section-Hero .Button--primary {
+    height: 60px;
+    padding: 0 32px;
+}
+
+/* Button Badge */
+.Button-Badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: var(--accent);
+    color: #fff;
+    font-family: var(--font-inter);
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+/* AVT-stacks */
+.AVT-stacks {
+    display: flex;
+    align-items: center;
+}
+
+.AVT-stacks .Avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 100px;
+    border: 2px solid rgb(234, 234, 234);
+    background-color: var(--container-bg);
+    margin-left: -12px;
+    overflow: hidden;
+}
+
+.AVT-stacks .Avatar:first-child {
+    margin-left: 0;
+}
+
+.AVT-stacks .Avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.Avatar-Count {
+    width: 84px;
+    height: 48px;
+    background-color: rgb(234, 234, 234);
+    border: 2px solid var(--container-border);
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -12px;
+    font-family: 'Averta', var(--font-inter);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Rate-Stack */
+.Rate-Stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.Rate-stare-stack {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    background-color: rgb(254, 250, 240);
+    border: 1px solid rgb(254, 234, 179);
+    border-radius: 100px;
+    width: fit-content;
+}
+
+.Star {
+    width: 20px;
+    height: 20px;
+    background-color: rgb(253, 193, 28);
+    border: 1px solid #fff;
+    border-radius: 100px;
+}
+
+.Community-Text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(139, 150, 166);
+    text-transform: uppercase;
+}
+
+/* ========================================
+   Responsive - Section Hero
+======================================== */
+@media (max-width: 1024px) {
+    .Section-Hero {
+        padding: 0;
+    }
+
+    .Section-Hero .Container {
+        padding: 40px 24px;
+        border-left: none;
+        border-right: none;
+    }
+
+    .Main-Title {
+        font-size: 40px;
+    }
+
+    .Subtitle {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .Section-Hero .Container {
+        padding: 32px 16px;
+    }
+
+    .Main-Title {
+        font-size: 32px;
+    }
+
+    .Subtitle {
+        font-size: 16px;
+    }
+
+    .Section-Hero .Button,
+    .Section-Hero .Button--primary {
+        height: 48px;
+        padding: 0 20px;
+    }
+
+    .Section-Hero .Duo-button {
+        flex-direction: column;
+    }
+
+    .Section-Hero .Button,
+    .Section-Hero .Button--primary {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ========================================
+   Section - Blog
+======================================== */
+.Section-Blog {
+    background-color: var(--section-bg);
+    padding: 0 40px;
+}
+
+.Section-Blog .Container {
+    padding: 60px 40px;
+    gap: 40px;
+    border-top: none;
+}
+
+/* Title-stack-left */
+.Title-stack-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.Blog-Title {
+    font-family: var(--font-inter);
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.1;
+}
+
+/* Blog Cards Container */
+.Blog-Cards-Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Blog Cards Slider */
+.Blog-Cards-Slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.Blog-Cards-Slider::-webkit-scrollbar {
+    display: none;
+}
+
+/* Blog-card */
+.Blog-card {
+    width: 360px;
+    flex-shrink: 0;
+    border: 1px solid rgb(68, 74, 84);
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--container-bg);
+}
+
+.Blog-card .Title-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* decor-stack */
+.decor-stack {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 20px;
+}
+
+.decor-dots {
+    display: flex;
+    gap: 2px;
+}
+
+.decor-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 100px;
+    border: 1px solid var(--text-primary);
+    background-color: var(--container-bg);
+}
+
+.decor-line {
+    flex: 1;
+    height: 1px;
+    background-color: var(--text-primary);
+}
+
+.decor-text {
+    font-family: var(--font-inter);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+    text-transform: uppercase;
+}
+
+.decor-number {
+    font-family: 'B612 Mono', monospace;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-primary);
+}
+
+/* Blog Card Image */
+.Blog-card-image {
+    width: 100%;
+    height: 252px;
+    background-color: rgb(223, 223, 223);
+    border: 1px solid var(--container-border);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.Blog-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* content-stack */
+.content-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.Blog-card-title {
+    font-family: var(--font-inter);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.Blog-card .Button {
+    height: 40px;
+    padding: 0 16px 0 12px;
+    border-radius: 4px;
+    width: fit-content;
+}
+
+/* Arrow-button */
+.Arrow-button {
+    width: 40px;
+    height: 40px;
+    background-color: var(--container-bg);
+    border: 1px solid var(--container-border);
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+    flex-shrink: 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.Arrow-button:first-of-type {
+    left: -60px;
+}
+
+.Arrow-button:last-of-type {
+    right: -60px;
+}
+
+.Arrow-button:hover {
+    border-color: var(--text-secondary);
+}
+
+.Arrow-button svg {
+    width: 24px;
+    height: 24px;
+    color: var(--text-secondary);
+}
+
+/* ========================================
+   Responsive - Section Blog
+======================================== */
+@media (max-width: 1024px) {
+    .Section-Blog {
+        padding: 0;
+    }
+
+    .Section-Blog .Container {
+        padding: 40px 24px;
+        border-left: none;
+        border-right: none;
+    }
+
+    .Blog-Title {
+        font-size: 32px;
+    }
+
+    .Blog-Cards-Container {
+        justify-content: flex-start;
+    }
+
+    .Blog-Cards-Slider {
+        padding-bottom: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .Section-Blog .Container {
+        padding: 32px 16px;
+    }
+
+    .Blog-Title {
+        font-size: 28px;
+    }
+
+    .Blog-card {
+        width: 300px;
+    }
+
+    .Blog-card-image {
+        height: 180px;
+    }
+
+    .Arrow-button {
+        display: none;
+    }
+}
+
+/* ========================================
+   Section - Footer
+======================================== */
+.Section-Footer {
+    background-color: var(--section-bg);
+    padding: 0 40px;
+}
+
+.Section-Footer .Container {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    padding: 60px 40px;
+    border-top: none;
+}
+
+/* Logo-stack-verticle */
+.Logo-stack-verticle {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 260px;
+    flex-shrink: 0;
+}
+
+.Footer-Logo {
+    width: 128.5px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.Footer-Logo-Text {
+    font-family: 'Averta', var(--font-inter);
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* Footer-menu-stack */
+.Footer-menu-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.Footer-Menu-Title {
+    font-family: var(--font-inter);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    line-height: 1.5;
+}
+
+.Footer-Menu-Items {
+    display: flex;
+    flex-direction: column;
+}
+
+.Footer-Nav-item {
+    font-family: 'Averta', var(--font-inter);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 5px 0;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+.Footer-Nav-item:hover {
+    color: var(--text-primary);
+}
+
+/* subscribe-stack-verticle */
+.subscribe-stack-verticle {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 295px;
+    margin-left: auto;
+}
+
+.Subscribe-Input {
+    width: 100%;
+    height: 48px;
+    background-color: var(--container-bg);
+    border: 1px solid var(--container-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+}
+
+.Subscribe-Input input {
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    font-family: var(--font-inter);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.Subscribe-Input input::placeholder {
+    color: var(--text-secondary);
+}
+
+.Subscribe-Button {
+    width: 100%;
+    height: 56px;
+    justify-content: center;
+}
+
+/* ========================================
+   Responsive - Section Footer
+======================================== */
+@media (max-width: 1024px) {
+    .Section-Footer {
+        padding: 0;
+    }
+
+    .Section-Footer .Container {
+        padding: 40px 24px;
+        border-left: none;
+        border-right: none;
+        flex-wrap: wrap;
+        gap: 32px;
+    }
+
+    .Logo-stack-verticle {
+        width: 100%;
+    }
+
+    .Footer-menu-stack {
+        width: auto;
+        flex-shrink: 0;
+    }
+
+    .subscribe-stack-verticle {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .Section-Footer .Container {
+        padding: 32px 16px;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .Footer-menu-stack {
+        width: 100%;
+    }
+
+    .subscribe-stack-verticle {
+        width: 100%;
+    }
+}
