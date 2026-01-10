@@ -70,10 +70,15 @@ function initLoadingScreen() {
 
     if (!loadingGrid || !loadingScreen) return;
 
-    const cols = 8;
-    const rows = 6;
+    // Calculate cells based on screen size (100px minimum cell size)
+    const cellSize = 100;
+    const cols = Math.ceil(window.innerWidth / cellSize);
+    const rows = Math.ceil(window.innerHeight / cellSize);
     const totalCells = cols * rows;
-    const totalDuration = 2000; // 2 seconds
+    const totalDuration = 1000; // 1 second
+
+    // Set grid columns
+    loadingGrid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
 
     // Create grid cells
     for (let i = 0; i < totalCells; i++) {
