@@ -23,10 +23,54 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+    overflow-y: visible;
+    background-color: var(--section-bg);
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-inter);
     line-height: 1.6;
     color: var(--text-primary);
+    zoom: 0.90; /* Scale down to 90% */
+    min-height: 100vh;
+}
+
+/* ========================================
+   Loading Screen
+======================================== */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.loading-screen.hidden {
+    display: none;
+}
+
+.loading-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    width: 100%;
+    height: 100%;
+}
+
+.loading-cell {
+    background-color: var(--section-bg);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.loading-cell.fade-out {
+    opacity: 0;
+    transform: scale(0.8);
 }
 
 /* ========================================
@@ -50,6 +94,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    overflow: visible;
 }
 
 /* ========================================
@@ -325,6 +370,11 @@ body {
     height: 24px;
     color: var(--text-secondary);
     flex-shrink: 0;
+}
+
+/* Ẩn icon dấu hỏi (?) trong button */
+.Button svg:first-child {
+    display: none;
 }
 
 .Button span {
@@ -811,12 +861,14 @@ body {
 .Section-Blog {
     background-color: var(--section-bg);
     padding: 0 40px;
+    overflow: visible;
 }
 
 .Section-Blog .Container {
     padding: 60px 40px;
     gap: 40px;
     border-top: none;
+    overflow: visible;
 }
 
 /* Title-stack-left */
@@ -841,6 +893,11 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
+    overflow: visible;
+    width: calc(100% + 80px);
+    margin-left: -40px;
+    margin-right: -40px;
+    padding: 0 40px;
 }
 
 /* Blog Cards Slider */
@@ -848,9 +905,12 @@ body {
     display: flex;
     gap: 20px;
     overflow-x: auto;
+    overflow-y: visible;
     scroll-behavior: smooth;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    padding: 10px 40px;
+    margin: -10px -40px;
 }
 
 .Blog-Cards-Slider::-webkit-scrollbar {
@@ -1048,6 +1108,7 @@ body {
 .Section-Footer {
     background-color: var(--section-bg);
     padding: 0 40px;
+    padding-bottom: 40px;
 }
 
 .Section-Footer .Container {

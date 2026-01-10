@@ -3,11 +3,98 @@
  * ====================================
  */
 
+// Initialize loading screen immediately
+initLoadingScreen();
+
 // Wait for DOM to be ready
 document.addEventListener('DOMContentLoaded', function() {
+    initSmoothScroll();
     initHamburgerMenu();
     initBlogSlider();
 });
+
+/**
+ * Smooth Scroll Module (Lenis)
+ * ----------------------------
+ * Creates buttery smooth scrolling experience
+ */
+function initSmoothScroll() {
+    const lenis = new Lenis({
+        duration: 0.6,
+        easing: (t) => 1 - Math.pow(1 - t, 3),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1.5,
+        touchMultiplier: 2.5,
+        lerp: 0.15,
+    });
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Make lenis available globally for anchor links
+    window.lenis = lenis;
+}
+
+/**
+ * Loading Screen Module
+ * ---------------------
+ * Creates grid cells that fade out randomly
+ */
+function initLoadingScreen() {
+    const loadingGrid = document.getElementById('loadingGrid');
+    const loadingScreen = document.getElementById('loadingScreen');
+
+    if (!loadingGrid || !loadingScreen) return;
+
+    const cols = 8;
+    const rows = 6;
+    const totalCells = cols * rows;
+    const totalDuration = 2000; // 2 seconds
+
+    // Create grid cells
+    for (let i = 0; i < totalCells; i++) {
+        const cell = document.createElement('div');
+        cell.className = 'loading-cell';
+        cell.dataset.index = i;
+        loadingGrid.appendChild(cell);
+    }
+
+    // Get all cells and shuffle their order
+    const cells = Array.from(loadingGrid.querySelectorAll('.loading-cell'));
+    const shuffledIndices = shuffleArray([...Array(totalCells).keys()]);
+
+    // Calculate delay between each cell disappearing
+    const delayBetweenCells = (totalDuration - 300) / totalCells;
+
+    // Fade out cells randomly
+    shuffledIndices.forEach((index, i) => {
+        setTimeout(() => {
+            cells[index].classList.add('fade-out');
+        }, i * delayBetweenCells);
+    });
+
+    // Hide loading screen after all animations complete
+    setTimeout(() => {
+        loadingScreen.classList.add('hidden');
+    }, totalDuration);
+}
+
+/**
+ * Shuffle array using Fisher-Yates algorithm
+ */
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
 
 /**
  * Hamburger Menu Module
@@ -145,7 +232,7 @@ function initBlogSlider() {
 }
 
 /**
- * Smooth Scroll for anchor links
+ * Smooth Scroll for anchor links (using Lenis)
  */
 document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     anchor.addEventListener('click', function(e) {
@@ -153,11 +240,12 @@ document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
         if (targetId === '#') return;
 
         const target = document.querySelector(targetId);
-        if (target) {
+        if (target && window.lenis) {
             e.preventDefault();
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            window.lenis.scrollTo(target, {
+                offset: 0,
+                duration: 0.8,
+                easing: (t) => 1 - Math.pow(1 - t, 3)
             });
         }
     });
