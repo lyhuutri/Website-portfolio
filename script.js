@@ -10,7 +10,54 @@ initLoadingScreen();
 document.addEventListener('DOMContentLoaded', function() {
     initHamburgerMenu();
     initBlogSlider();
+    initEncryptEffect();
 });
+
+/**
+ * Encrypt Text Effect Module
+ * --------------------------
+ * Creates scrambled text effect on button hover
+ */
+function initEncryptEffect() {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*';
+    const buttons = document.querySelectorAll('.Button span, .Button-icon .Phone-Number');
+
+    buttons.forEach(function(element) {
+        const originalText = element.textContent;
+        let interval = null;
+
+        element.parentElement.addEventListener('mouseenter', function() {
+            let iteration = 0;
+            const textLength = originalText.length;
+
+            clearInterval(interval);
+
+            interval = setInterval(function() {
+                element.textContent = originalText
+                    .split('')
+                    .map(function(char, index) {
+                        if (index < iteration) {
+                            return originalText[index];
+                        }
+                        if (char === ' ') return ' ';
+                        return chars[Math.floor(Math.random() * chars.length)];
+                    })
+                    .join('');
+
+                if (iteration >= textLength) {
+                    clearInterval(interval);
+                }
+
+                iteration += 1 / 2;
+            }, 30);
+        });
+
+        element.parentElement.addEventListener('mouseleave', function() {
+            clearInterval(interval);
+            element.textContent = originalText;
+        });
+    });
+}
 
 /**
  * Loading Screen Module
