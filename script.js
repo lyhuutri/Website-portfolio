@@ -102,10 +102,29 @@ function initLoadingScreen() {
         }, i * delayBetweenCells);
     });
 
-    // Hide loading screen after all animations complete
+    // Hide loading screen and trigger page animations
     setTimeout(() => {
         loadingScreen.classList.add('hidden');
+        initPageAnimations();
     }, totalDuration);
+}
+
+/**
+ * Page Animations Module
+ * ----------------------
+ * Triggers staggered animations for elements after loading
+ */
+function initPageAnimations() {
+    const animatedElements = document.querySelectorAll('.animate-on-load');
+
+    animatedElements.forEach(function(element) {
+        const animation = element.dataset.animation;
+        const delay = parseInt(element.dataset.delay) || 0;
+
+        setTimeout(function() {
+            element.classList.add('animate-' + animation);
+        }, delay);
+    });
 }
 
 /**
